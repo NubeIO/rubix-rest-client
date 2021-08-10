@@ -3,36 +3,36 @@ import requests
 from rubix.utils.utils import Utils
 
 
-class Chirpstack:
+class Rubix:
     def __init__(self,
-                 chirpstack_url=None,
-                 chirpstack_user=None,
-                 chirpstack_pass=None,
+                 host=None,
+                 user=None,
+                 password=None,
                  jwt: str = None,
-                 connection_status: bool = None
+                 connection_status: bool = None,
                  ):
-        self.chirpstack_url = chirpstack_url
-        self.chirpstack_user = chirpstack_user
-        self.chirpstack_pass = chirpstack_pass
+        self.host = host
+        self.user = user
+        self.password = password
         self.jwt = jwt
         self.connection_status = connection_status
         self.connect()
 
     def _authenticate(self):
-        auth_url = "%s/api/internal/login" % self.chirpstack_url
+        self.url = self.host
+        auth_url = "%s/api/users/login" % self.host
         payload = {
-            "email": self.chirpstack_user,
-            "password": self.chirpstack_pass
+            "username": self.user,
+            "password": self.password
         }
-        auth_request = requests.post(
-            auth_url,
-            json=payload
-        )
+        auth_request = requests.post(auth_url,
+                                     headers={'Content-Type': 'application/json'},
+                                     json=payload)
 
         self.connection_status = Utils.http_response_bool(auth_request)
-        auth_tok = auth_request.json()
-        self.jwt = auth_tok.get('jwt')
-        auth_header = {"Grpc-Metadata-Authorization": self.jwt}
+        access_token = auth_request.json()
+        self.jwt = access_token.get('access_token')
+        auth_header = {"Authorization": self.jwt}
         return auth_header
 
     def connect(self):
