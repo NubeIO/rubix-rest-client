@@ -2,7 +2,7 @@ from rubix.rubix_session import RubixSession
 from rubix.utils.utils import Utils
 
 
-class RubixNetwork:
+class RubixSlaveNetwork:
     def __init__(self,
                  connection: RubixSession,
                  global_uuid: str = None,
@@ -17,7 +17,7 @@ class RubixNetwork:
         list all rubix networks per edge device
         :return: JSON
         """
-        url = f"{self.ctx.url}/slave/{self.global_uuid}/ps/api/generic/networks"
+        url = f"{self.ctx.url}/slave/{self.global_uuid}/ps/api/generic/networks?with_children=true&points=true"
         res = self.ctx.connection.get(url)
         return Utils.http_response_json(res)
 
@@ -40,5 +40,18 @@ class RubixNetwork:
         :return: JSON
         """
         url = f"{self.ctx.url}/slave/{self.global_uuid}/ps/api/generic/points"
+        res = self.ctx.connection.get(url)
+        return Utils.http_response_json(res)
+
+    def get_by_uuid(self,
+                    network_uuid: str
+                    ):
+        """
+        get network by its uuid
+        slave/<g_uuid>/ps/api/generic/networks/uuid/<network_uuid>
+        network_uuid: string
+        :return: JSON
+        """
+        url = f"{self.ctx.url}/slave/{self.global_uuid}/ps/api/generic/networks/uuid/{network_uuid}"
         res = self.ctx.connection.get(url)
         return Utils.http_response_json(res)

@@ -2,7 +2,7 @@ from rubix.rubix_session import RubixSession
 from rubix.utils.utils import Utils
 
 
-class RubixPoint:
+class RubixSchedule:
     def __init__(self,
                  connection: RubixSession,
                  global_uuid: str = None,
@@ -70,19 +70,39 @@ class RubixPoint:
         res = self.ctx.connection.patch(url, json=body)
         return Utils.http_response_json(res)
 
-    def get_by_name(self,
-                    network_name: str,
-                    device_name: str,
-                    point_name: str
-                    ):
+    def master_get_all(self,
+                       ):
         """
-        get a point value names as in network, device and point names
-        slave/<g_uuid>/ps/api/generic/points/name/<network_name>/<device_name>/<point_name>
-        network_name: string
-        device_name: string
-        point_name: string
+        get schedules
+        /ps/api/schedules
         :return: JSON
         """
-        url = f"{self.ctx.url}/slave/{self.global_uuid}/ps/api/generic/points/name/{network_name}/{device_name}/{point_name}"
+        url = f"{self.ctx.url}/ps/api/schedules"
+        res = self.ctx.connection.get(url)
+        return Utils.http_response_json(res)
+
+    def master_get_by_name(self,
+                           schedule_name: str,
+                           ):
+        """
+        get a schedule by its name
+        /ps/api/schedules/name/<schedule_name>
+        schedule_name: string
+        :return: JSON
+        """
+        url = f"{self.ctx.url}/ps/api/schedules/name/{schedule_name}"
+        res = self.ctx.connection.get(url)
+        return Utils.http_response_json(res)
+
+    def master_get_by_uuid(self,
+                           schedule_uuid: str,
+                           ):
+        """
+        get a schedule by its name
+        /ps/api/schedules/uuid/<schedule_uuid>
+        schedule_name: string
+        :return: JSON
+        """
+        url = f"{self.ctx.url}/ps/api/schedules/uuid/{schedule_uuid}"
         res = self.ctx.connection.get(url)
         return Utils.http_response_json(res)
