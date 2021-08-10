@@ -1,10 +1,10 @@
-from rubix.rubix import Rubix
+from rubix.rubix_session import RubixSession
 from rubix.utils.utils import Utils
 
 
 class Discover:
     def __init__(self,
-                 connection: Rubix
+                 connection: RubixSession
                  ):
         self.ctx = connection
 

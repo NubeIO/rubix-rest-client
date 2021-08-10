@@ -3,7 +3,7 @@ import requests
 from rubix.utils.utils import Utils
 
 
-class Rubix:
+class RubixSession:
     def __init__(self,
                  host=None,
                  user=None,
