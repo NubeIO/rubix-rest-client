@@ -23,7 +23,7 @@
 ### <kbd>method</kbd> `__init__`
 
 ```python
-__init__(connection: RubixSession, global_uuid: str = None)
+__init__(connection: RubixSession, global_uuid: str, master: bool = None)
 ```
 
 
@@ -35,19 +35,31 @@ __init__(connection: RubixSession, global_uuid: str = None)
 
 ---
 
-<a href="../rubix/rubix_schedule.py#L13"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../rubix/rubix_schedule.py#L86"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>method</kbd> `get_by_name`
+
+```python
+get_by_name(schedule_name: str)
+```
+
+get a schedule by its name /ps/api/schedules/name/<schedule_name> schedule_name: string :return: JSON 
+
+---
+
+<a href="../rubix/rubix_schedule.py#L99"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_by_uuid`
 
 ```python
-get_by_uuid(point_uuid: str)
+get_by_uuid(schedule_uuid: str)
 ```
 
-get point by its uuid slave/<g_uuid>/ps/api/generic/points_value/uuid/<point_uuid> point_uuid: string :return: JSON 
+get a schedule by its name /ps/api/schedules/uuid/<schedule_uuid> schedule_name: string :return: JSON 
 
 ---
 
-<a href="../rubix/rubix_schedule.py#L73"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../rubix/rubix_schedule.py#L75"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `master_get_all`
 
@@ -59,31 +71,7 @@ get schedules /ps/api/schedules :return: JSON
 
 ---
 
-<a href="../rubix/rubix_schedule.py#L84"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
-
-### <kbd>method</kbd> `master_get_by_name`
-
-```python
-master_get_by_name(schedule_name: str)
-```
-
-get a schedule by its name /ps/api/schedules/name/<schedule_name> schedule_name: string :return: JSON 
-
----
-
-<a href="../rubix/rubix_schedule.py#L97"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
-
-### <kbd>method</kbd> `master_get_by_uuid`
-
-```python
-master_get_by_uuid(schedule_uuid: str)
-```
-
-get a schedule by its name /ps/api/schedules/uuid/<schedule_uuid> schedule_name: string :return: JSON 
-
----
-
-<a href="../rubix/rubix_schedule.py#L48"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../rubix/rubix_schedule.py#L50"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `patch_by_name`
 
@@ -101,7 +89,7 @@ write a point value by its names as in network, device and point names slave/<g_
 
 ---
 
-<a href="../rubix/rubix_schedule.py#L27"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../rubix/rubix_schedule.py#L29"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `patch_by_uuid`
 

@@ -5,10 +5,12 @@ from rubix.utils.utils import Utils
 class RubixPoint:
     def __init__(self,
                  connection: RubixSession,
-                 global_uuid: str = None,
+                 global_uuid: str,
+                 master: bool = None,
                  ):
         self.ctx = connection
         self.global_uuid = global_uuid
+        self.master = master
 
     def get_by_uuid(self,
                     point_uuid: str,

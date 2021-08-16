@@ -1,4 +1,4 @@
-from rubix import rubix_session, discover, rubix_slave_network, rubix_point, rubix_schedule
+from rubix import rubix_session, discover, rubix_network, rubix_point, rubix_schedule
 from config.load_config import get_config_host
 
 host = get_config_host().get("host")
@@ -29,7 +29,7 @@ global_uuid = "0799fd93-3170-4608-bfb6-c55f0a39ec08"
 NETWORKS
 """
 network_uuid = "273bce46-e595-4577-90ba-2e846834e6d2"
-n = rubix_slave_network.RubixSlaveNetwork(connection=cx, global_uuid=global_uuid)
+n = rubix_network.RubixNetwork(connection=cx, global_uuid=global_uuid)
 # print(n.get_networks())
 # print(n.get_by_uuid(network_uuid=network_uuid))
 

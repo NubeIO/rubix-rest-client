@@ -5,10 +5,12 @@ from rubix.utils.utils import Utils
 class RubixSchedule:
     def __init__(self,
                  connection: RubixSession,
-                 global_uuid: str = None,
+                 global_uuid: str,
+                 master: bool = None,
                  ):
         self.ctx = connection
         self.global_uuid = global_uuid
+        self.master = master
 
     def get_by_uuid(self,
                     point_uuid: str,
@@ -81,9 +83,9 @@ class RubixSchedule:
         res = self.ctx.connection.get(url)
         return Utils.http_response_json(res)
 
-    def master_get_by_name(self,
-                           schedule_name: str,
-                           ):
+    def get_by_name(self,
+                    schedule_name: str,
+                    ):
         """
         get a schedule by its name
         /ps/api/schedules/name/<schedule_name>
@@ -94,9 +96,9 @@ class RubixSchedule:
         res = self.ctx.connection.get(url)
         return Utils.http_response_json(res)
 
-    def master_get_by_uuid(self,
-                           schedule_uuid: str,
-                           ):
+    def get_by_uuid(self,
+                    schedule_uuid: str,
+                    ):
         """
         get a schedule by its name
         /ps/api/schedules/uuid/<schedule_uuid>

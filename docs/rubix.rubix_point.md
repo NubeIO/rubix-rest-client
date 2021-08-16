@@ -23,7 +23,7 @@
 ### <kbd>method</kbd> `__init__`
 
 ```python
-__init__(connection: RubixSession, global_uuid: str = None)
+__init__(connection: RubixSession, global_uuid: str, master: bool = None)
 ```
 
 
@@ -35,7 +35,7 @@ __init__(connection: RubixSession, global_uuid: str = None)
 
 ---
 
-<a href="../rubix/rubix_point.py#L73"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../rubix/rubix_point.py#L75"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_by_name`
 
@@ -47,7 +47,7 @@ get a point value names as in network, device and point names slave/<g_uuid>/ps/
 
 ---
 
-<a href="../rubix/rubix_point.py#L13"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../rubix/rubix_point.py#L15"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `get_by_uuid`
 
@@ -59,7 +59,7 @@ get point by its uuid slave/<g_uuid>/ps/api/generic/points_value/uuid/<point_uui
 
 ---
 
-<a href="../rubix/rubix_point.py#L48"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../rubix/rubix_point.py#L50"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `patch_by_name`
 
@@ -77,7 +77,7 @@ write a point value by its names as in network, device and point names slave/<g_
 
 ---
 
-<a href="../rubix/rubix_point.py#L27"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../rubix/rubix_point.py#L29"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `patch_by_uuid`
 
