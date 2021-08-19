@@ -23,15 +23,16 @@ Discover Connections to edge devices (Rubix-API)
 """
 d = discover.Discover(connection=cx)
 # print(d.discover_all())
-global_uuid = "0799fd93-3170-4608-bfb6-c55f0a39ec08"
+global_uuid = "XRRzciQUbpR4WMV9bPEESP"
 
 """
 NETWORKS
 """
-network_uuid = "273bce46-e595-4577-90ba-2e846834e6d2"
+
+network_uuid = "ZVM8xiZDCnrtG9GLLSvfk8"
 n = rubix_network.RubixNetwork(connection=cx, global_uuid=global_uuid)
 # print(n.get_networks())
-# print(n.get_by_uuid(network_uuid=network_uuid))
+# print(n.get_by_uuid(network_uuid=network_uuid, master=False))
 
 """
 POINTS
@@ -40,14 +41,24 @@ POINTS
 """
 Read a point value
 """
-point_uuid = "b9c6e455-b5ae-4606-95bc-c2ea71b73f4d"
+point_uuid = "4b6iWqWCSjyPcHhMci55VN"
 pw_by_uuid = rubix_point.RubixPoint(connection=cx, global_uuid=global_uuid)
-# print(pw_by_uuid.get_by_uuid(point_uuid=point_uuid))
+print(pw_by_uuid.get_by_uuid(point_uuid=point_uuid))
 
 """
 Write a point value
 """
-print(pw_by_uuid.patch_by_uuid(point_uuid=point_uuid, value=123.3, priority=15))
+# print(pw_by_uuid.patch_by_uuid(point_uuid=point_uuid, value=26, priority=15))
+
+
+"""
+Write a point value
+"""
+body = {
+    "fallback_value": 0
+}
+
+print(pw_by_uuid.patch_attribute_by_uuid(point_uuid=point_uuid, body=body))
 
 """
 Realise a priority override
