@@ -8,7 +8,7 @@ with open(join(dirname(__file__), 'requirements.txt'), 'r') as f:
 
 setup(
     name='rubix-rest-client',
-    version='',
+    version='v1.0.0',
     packages=['rubix', 'rubix.utils'],
     url='https://github.com/NubeIO/rubix-rest-client-python',
     license='',
