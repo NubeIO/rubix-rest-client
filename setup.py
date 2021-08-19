@@ -1,4 +1,10 @@
-from setuptools import setup
+import setuptools
+
+from distutils.core import setup
+from os.path import join, dirname
+
+with open(join(dirname(__file__), 'requirements.txt'), 'r') as f:
+    install_requires = f.read().split("\n")
 
 setup(
     name='rubix-rest-client',
